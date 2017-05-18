@@ -39,29 +39,30 @@ After adding **id="name-of-your-advert"** (remember to add your own name without
      id="header-area-300x250"></ins>
 ```
 ***NOTE:*** You should not modify any other part of your advert code
+
 Step 3 - Include the script files
 ------------
 You need to download both of the javascript files (jquery.iframetracker.js and jquery.trackersetup.js) and upload them to your website hosting. In this example the files are uploaded to a folder named **scripts** in the root (public_html) directory of the website hosting.
 
 Add
-``
+```
 <script src="/scripts/jquery.iframetracker.js"></script>
 <script src="/scripts/jquery.trackersetup.js"></script>
-``
+```
 between the **head** tags in your html. This will need to be done for every page of your website but if you're using a CMS (like WordPress) it will only need to be added to one file. If you are using WordPress a simple solution is to use this plugin to add the code to the head section for you: [AddFunc Head & Footer Code](https://wordpress.org/plugins/addfunc-head-footer-code/)
 
 If your site does not already have jQuery installed you'll also have to add this script:
 `<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>`
 
-***PLEASE NOTE:*** The scripts must be added as close to the closing </head> as possible as they require jQuery to be running in order to work correctly.
+***PLEASE NOTE:*** The scripts must be added as close to the closing `</head>` as possible as they require jQuery to be running in order to work correctly.
 
 Your html should look something like this after you've added the code:
-`
+```
 <head>
 <title>My website</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/scripts/jquery.iframetracker.js"></script>
 <script src="/scripts/jquery.trackersetup.js"></script>
 </head>
-`
+```
 ***PLEASE NOTE:*** /scripts/ means that the scripts are located in http://mywebsite.com/scripts/.
