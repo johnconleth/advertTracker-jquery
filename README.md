@@ -53,7 +53,7 @@ between the **head** tags in your html. This will need to be done for every page
 If your site does not already have jQuery installed you'll also have to add this script:
 `<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>`
 
-***PLEASE NOTE:*** The scripts must be added as close to the closing `</head>` as possible as they require jQuery to be running in order to work correctly.
+***NOTE:*** The scripts must be added as close to the closing `</head>` as possible as they require jQuery to be running in order to work correctly. To check if you have jQuery installed, view your websites source code and search for ***jquery***
 
 Your html should look something like this after you've added the code:
 ```
@@ -64,4 +64,13 @@ Your html should look something like this after you've added the code:
 <script src="/scripts/jquery.trackersetup.js"></script>
 </head>
 ```
-***PLEASE NOTE:*** /scripts/ means that the scripts are located in http://mywebsite.com/scripts/.
+***NOTE:*** /scripts/ means that the scripts are located in http://mywebsite.com/scripts/.
+
+Final Step - Tracking Advert clicks
+------------
+
+After the code has been working for some time and you've earned some money from clicks on your adverts it's time to see which adverts were clicked on. To do this got to Google Analytics and navigate to ***Behavior*** > ***Events***
+
+All your advert click events should be listed, click on the advert, then the click and finally the advert name to see information like what page the visitor was on when they clicked on the advert. You can also create a goal in Google Analytics that will give a clearer picture but that's beyond the scope of what I've done here!
+
+##Enjoy!##
