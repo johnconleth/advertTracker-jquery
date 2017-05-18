@@ -9,8 +9,8 @@ advertTracker tracks clicks on adverts and triggers a tracking event in Google A
 How to use it ?
 ------------
  - You will need to have Google Analytics installed on your website
- - You will have to modify your advert code to include an id and a css style (see instructions below)
- - You will have to download and install two scripts into your website (see below)
+ - You will have to modify your advert code to include an id (see instructions below)
+ - You will have to download and install two scripts into your website (see instructions below)
  
 Step 1 - Install Google Analytics
 ------------
@@ -38,22 +38,22 @@ After adding **id="name-of-your-advert"** (remember to add your own name without
      ad-format="long"
      id="header-area-300x250"></ins>
 ```
-
-Step 3 - Include the jquery.adsensetracker.js
+***NOTE:*** You should not modify any other part of your advert code
+Step 3 - Include the script files
 ------------
-You need to download both of the javascript files (jquery.iframetracker.js and jquery.trackersetup.js) and upload them to your website hosting. In this example the files were uploaded to a folder named **scripts** in the root (public_html) directory of the website hosting.
+You need to download both of the javascript files (jquery.iframetracker.js and jquery.trackersetup.js) and upload them to your website hosting. In this example the files are uploaded to a folder named **scripts** in the root (public_html) directory of the website hosting.
 
 Add
-`
+``
 <script src="/scripts/jquery.iframetracker.js"></script>
 <script src="/scripts/jquery.trackersetup.js"></script>
-`
-between the **head** tags in your html. This will need to be done for every page of your website but if you're using a CMS (like WordPress) it will only need to be added to one file. If you are using WordPress a simple solution is to use this plugin to add the code to the head section for you: [Set up Analytics tracking](https://support.google.com/analytics/answer/1008080?hl=en)
+``
+between the **head** tags in your html. This will need to be done for every page of your website but if you're using a CMS (like WordPress) it will only need to be added to one file. If you are using WordPress a simple solution is to use this plugin to add the code to the head section for you: [AddFunc Head & Footer Code](https://wordpress.org/plugins/addfunc-head-footer-code/)
 
 If your site does not already have jQuery installed you'll also have to add this script:
 `<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>`
 
-***PLEASE NOTE:*** The scripts must be in this order 
+***PLEASE NOTE:*** The scripts must be added as close to the closing </head> as possible as they require jQuery to be running in order to work correctly.
 
 Your html should look something like this after you've added the code:
 `
@@ -62,6 +62,6 @@ Your html should look something like this after you've added the code:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/scripts/jquery.iframetracker.js"></script>
 <script src="/scripts/jquery.trackersetup.js"></script>
-
 </head>
 `
+***PLEASE NOTE:*** /scripts/ means that the scripts are located in http://mywebsite.com/scripts/.
