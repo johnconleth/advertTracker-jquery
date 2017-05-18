@@ -1,15 +1,15 @@
 /**
- * iframe click tracker jQuery plugin setup
+ * adsense tracker jQuery plugin setup
  *
- * Setup file for using iframe click tracker jQuery plugin to track AdSense clicks
+ * Setup file for using original iframe click tracker jQuery plugin to track AdSense clicks
  * @author John Conleth (http://JohnConleth.com)
  * @copyright © 2017 John Conleth
  * @version 1.0
  */
 
-// add iframe tracking to all elements with .adsenseadvert style attached
+// add iframe tracking to all elements with .adsbygoogle style attached
 $(function() {
-   $('.adsenseadvert iframe').iframeTracker({
+   $('.adsbygoogle iframe').iframeTracker({
    blurCallback: function(){
     ga('send', 'event', 'Advert', 'click', this._overId);
    },
