@@ -1,82 +1,67 @@
-iframeTracker jQuery Plugin
+Advert Tracker jQuery Plugin
 ===========================
-iframeTracker is a jQuery plugin that allow to track clicks on iframes.
+A fork of original [iframeTracker jQuery Plugin](https://github.com/vincepare/iframeTracker-jquery) - a jQuery plugin that allow tracking of clicks on iframes.
 
-This is very useful to :
-
- - track clicks on Google Adsense (google uses iframes to display ads)
- - track clicks on Facebook Like buttons
- - track clicks on Youtube embed video player
- - ... and any other iframe !
-
-Try it now : [demo](http://cdn.rawgit.com/vincepare/iframeTracker-jquery/master/demo/index.html).
-
-How does it work ?
+What it does ?
 ------------------
-Since it's impossible to read iframe content (DOM) from the parent page due to the [same origin policy](http://en.wikipedia.org/wiki/Same-origin_policy), tracking is based on the blur event associated to a **page/iframe boundary monitoring system** telling over which iframe is the mouse cursor at any time.
+advertTracker tracks clicks on adverts and triggers a tracking event in Google Analytics for each advert click. Using Google Analytics you'll be able to see what adverts were clicked and on what page.
 
-How to use ?
+How to use it ?
 ------------
-Match the iframe elements you want to track with a jQuery selector and call `iframeTracker` with a callback function that will be called when a click on the iframe is detected :
+ - You will need to have Google Analytics installed on your website
+ - You will have to modify your advert code to include an id and a css style (see instructions below)
+ - You will have to download and install two scripts into your website (see below)
+ 
+Step 1 - Install Google Analytics
+------------
+Visit this link and follow the instructions to intall Google Analytics:
+[Set up Analytics tracking](https://support.google.com/analytics/answer/1008080?hl=en)
+*If you already have Google Analytics installed you can skip this step.*
 
+Step 2 - Modify your advert code
+------------
+You need to add **id="name-of-your-advert"** into your existing advert code. Your original advert code should look something like this:
 ```javascript
-jQuery(document).ready(function($){
-	$('.iframe_wrap iframe').iframeTracker({
-		blurCallback: function(){
-			// Do something when the iframe is clicked (like firing an XHR request)
-		}
-	});
-});
+<ins class="advert"
+     style="display:block"
+     ad-client="da-XP-0000000000"
+     ad-slot="123456789"
+     ad-format="long"
+     id="name-of-your-advert"></ins>
 ```
-
-### Advanced tracking
-
+After adding **id="name-of-your-advert"** (remember to add your own name without spaces), your code should look something like this:
 ```javascript
-jQuery(document).ready(function($){
-	$('.iframe_wrap iframe').iframeTracker({
-		blurCallback: function(){
-			// Do something when iframe is clicked (like firing an XHR request)
-			// You can know which iframe element is clicked via this._overId
-		},
-		overCallback: function(element){
-			this._overId = $(element).parents('.iframe_wrap').attr('id'); // Saving the iframe wrapper id
-		},
-		outCallback: function(element){
-			this._overId = null; // Reset hover iframe wrapper id
-		},
-		_overId: null
-	});
-});
+<ins class="advert"
+     style="display:block"
+     ad-client="da-XP-0000000000"
+     ad-slot="123456789"
+     ad-format="long"
+     id="header-area-300x250"></ins>
 ```
 
-#### Cancel tracking
-You can remove tracker attached to on an iframe by calling `.iframeTracker()` with either `false` or `null` :
-```javascript
-$('#iframe_red_1 iframe').iframeTracker(false);
-$('#iframe_red_2 iframe').iframeTracker(null);
-```
+Step 3 - Include the jquery.adsensetracker.js
+------------
+You need to download both of the javascript files (jquery.iframetracker.js and jquery.trackersetup.js) and upload them to your website hosting. In this example the files were uploaded to a folder named **scripts** in the root (public_html) directory of the website hosting.
 
-Full tutorial available here : http://www.finalclap.com/tuto/track-iframe-click-jquery-87/ (it's in French).
+Add
+`
+<script src="/scripts/jquery.iframetracker.js"></script>
+<script src="/scripts/jquery.trackersetup.js"></script>
+`
+between the **head** tags in your html. This will need to be done for every page of your website but if you're using a CMS (like WordPress) it will only need to be added to one file. If you are using WordPress a simple solution is to use this plugin to add the code to the head section for you: [Set up Analytics tracking](https://support.google.com/analytics/answer/1008080?hl=en)
 
-Tested on jQuery `1.4.4`, `1.8.2`, `1.9.1`, `1.11.0` & `2.1.4`.
+If your site does not already have jQuery installed you'll also have to add this script:
+`<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>`
 
-----------
+***PLEASE NOTE:*** The scripts must be in this order 
 
-### Install
-With npm :
-```bash
-npm install jquery.iframetracker
-```
+Your html should look something like this after you've added the code:
+`
+<head>
+<title>My website</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/scripts/jquery.iframetracker.js"></script>
+<script src="/scripts/jquery.trackersetup.js"></script>
 
-With bower :
-```bash
-bower install jquery.iframetracker
-```
-
-### About mobile devices
-This plugin doesn't work on mobile devices such as smartphones and tablets, because this hardware uses a touchscreen instead of a mouse as click input. This design makes the boundary monitoring trick useless.
-
-### Donate
-Donations are welcome :) via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=YXDJFGF8GCGLA&item_name=Vincent%20Par%e9%20-%20www.finalclap.com&item_number=iframeTracker%2dgithub&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted), [Flattr](https://flattr.com/submit/auto?user_id=finalclap&url=https://github.com/finalclap/iframeTracker-jquery&title=iframeTracker%20jQuery%20Plugin&language=&tags=github&category=software) or Bitcoin at this address : `3G5uTti2JPAT738uDeQXjrN7tUj2NZjt6M` or by flashing this lovely QR code :
-
-![qrcode for bitcoin address 3G5uTti2JPAT738uDeQXjrN7tUj2NZjt6M](https://btc.blockr.io/api/v1/address/Qr/3G5uTti2JPAT738uDeQXjrN7tUj2NZjt6M)
+</head>
+`
