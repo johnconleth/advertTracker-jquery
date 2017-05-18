@@ -26,8 +26,7 @@ You need to add **id="name-of-your-advert"** into your existing advert code. You
      style="display:block"
      ad-client="da-XP-0000000000"
      ad-slot="123456789"
-     ad-format="long"
-     id="name-of-your-advert"></ins>
+     ad-format="long"</ins>
 ```
 After adding **id="name-of-your-advert"** (remember to add your own name without spaces), your code should look something like this:
 ```javascript
