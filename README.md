@@ -73,4 +73,4 @@ After the code has been working for some time and you've earned some money from 
 
 All your advert click events should be listed, click on the advert, then the click and finally the advert name to see information like what page the visitor was on when they clicked on the advert. You can also create a goal in Google Analytics that will give a clearer picture but that's beyond the scope of what I've done here!
 
-##Enjoy!
+:moneybag: :moneybag: :moneybag: Enjoy!
